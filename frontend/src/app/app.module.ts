@@ -34,7 +34,6 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     AdvertisersComponent,
     DriversComponent,
-    ContactComponent
   ],
   imports: [
     BrowserModule,

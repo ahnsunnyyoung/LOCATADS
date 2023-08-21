@@ -1,1 +1,49 @@
-<p>contact works!</p>
+
+<div class="main">
+  <div class="form-card">
+    <div class="header">
+      <h2>Wanna make it <span class="highlight">LOCATADS</span>?</h2>
+      <p>We need several informations to start.</p>
+    </div>
+
+    <div class="form-group">
+      <div class="form">
+        <h5>I am... <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select [(value)]="selectedUserType">
+            <mat-option [value]="option.value" *ngFor="let option of userTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+
+      <div class="form input">
+        <h5>First & Last Name  <span style="color: red;">*</span></h5>
+        <mat-form-field class="example-full-width">
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="selectedUserType === '0'" class="form input">
+        <h5>Company name <span style="color: red;">*</span></h5>
+        <mat-form-field class="example-full-width">
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form input">
+        <h5>Email  <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-stroked-button>Submit</button>
+      
+
+    </div>
+
+  </div>
+</div>
