@@ -1,0 +1,45 @@
+.header {
+  height: 50vh;
+  padding-top: 60px;
+  background-image: url('/assets/images/advertisers_bg.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-text {
+  padding: 0 10%;
+  font-size: 2.2rem;
+}
+
+.feature {
+  display: flex;
+  gap: auto;
+  padding: 0px 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feature-title {
+  display: flex;
+  padding: 80px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-content {
+  display: flex;
+  padding: 70px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+p {
+  font-size: 1.2rem;
+}

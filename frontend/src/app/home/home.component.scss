@@ -1,0 +1,18 @@
+.header {
+  height: 50vh;
+  padding-top: 60px;
+  background-image: url('/assets/images/home_bg.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-text {
+  padding: 0 10%;
+  font-size: 2.2rem;
+}
+
+.highlight {
+  font-weight: bolder;
+  font-size: larger;
+}
