@@ -2,6 +2,69 @@
   <app-side-nav></app-side-nav>
 
   <div class="content">
-  </div>
+    <h2>Manage ADs</h2>
 
+    <div class="dashboard-container">
+      <button class="btn btn-primary btn-rounded add-btn">Add</button>
+
+      <h4>Advertisements</h4>
+      <p>There are a total of {{adData.length | number}} launched advertisements</p>
+
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>AD</th>
+            <th>Views</th>
+            <th>Displayed</th>
+            <th>Visibility</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ad of adData">
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src={{ad.img}}
+                    alt={{ad.img_alt}}
+                    style="width: 85px; height: 45px"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-0">{{ad.title}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-0">{{ad.views | number}}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-0">{{ad.views | number}}</p>
+            </td>
+            <td>
+              <span class="badge rounded-pill d-inline" 
+                [ngClass]="{
+                'badge-success':ad.status === 'Active',
+                'badge-primary':ad.status === 'Awaiting',
+                'badge-warning':ad.status === 'Deactivate',
+                }">{{ad.status}}</span>
+            </td>
+            <td>
+              <p class="fw-normal mb-0">{{ad.date}}</p>
+            </td>
+            <td>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                Delete
+              </button>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
 </div>
