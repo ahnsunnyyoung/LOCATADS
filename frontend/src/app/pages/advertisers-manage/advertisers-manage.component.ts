@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
 export class AdvertisersManageComponent {
   constructor(private router: Router) { }
 	adData = ADs;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> d26640b7b77d5b15d4bd826eeff163262e1b93cb
   onAdd() {
     this.router.navigate(['/advertisers/add']);
   }
