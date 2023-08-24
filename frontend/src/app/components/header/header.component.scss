@@ -11,6 +11,11 @@
   padding-right: 3%;
 }
 
+.navbar-nav > .active  a{
+  color : black;
+  font-weight: bolder;
+  text-decoration: underline;
+}
 @media only screen and (max-width: 991px) {
   .header-nav {
     width: auto;

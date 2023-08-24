@@ -1,0 +1,69 @@
+<div class="main">
+  <div class="form-card">
+    <div class="header">
+      <h2>New AD</h2>
+      <p>More information will make your advertisement to be shine</p>
+    </div>
+
+    <div class="form-group">
+
+      <div class="form input">
+        <h5>Title  <span style="color: red;">*</span></h5>
+        <mat-form-field class="example-full-width">
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>AD Type <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedAdType">
+            <mat-option [value]="option.value" *ngFor="let option of adTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      
+
+      <div class="form">
+        <h5>Target audience <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedtargetAudienceType">
+            <mat-option [value]="option.value" *ngFor="let option of targetAudienceTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>Preferred weather <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedweatherType">
+            <mat-option [value]="option.value" *ngFor="let option of weatherTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>Preferred time <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedtimeType">
+            <mat-option [value]="option.value" *ngFor="let option of timeTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>Service type <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedserviceType">
+            <mat-option [value]="option.value" *ngFor="let option of serviceTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <button mat-stroked-button (click)="onSubmit()">Submit</button>
+
+      
+
+</div>

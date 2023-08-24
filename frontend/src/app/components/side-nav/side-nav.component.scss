@@ -1,0 +1,35 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logo-container {
+  display: flex;
+  padding: 30px 30px;
+  flex-direction: column;
+  align-items: center;
+
+  color: black;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #808080;
+  flex: 1 0 auto;
+}
+
+.logo {
+  padding: 15px 10px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav-item {
+  width: 100%;
+}

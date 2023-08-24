@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
@@ -21,10 +21,23 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutComponent } from './about/about.component';
-import { AdvertisersComponent } from './advertisers/advertisers.component';
-import { DriversComponent } from './drivers/drivers.component';
-import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { AdvertisersComponent } from './pages//advertisers/advertisers.component';
+import { DriversComponent } from './pages//drivers/drivers.component';
+import { ContactComponent } from './pages//contact/contact.component';
+import { AdvertisersDashboardComponent } from './pages/advertisers-dashboard/advertisers-dashboard.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgIf, NgFor} from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SideButtonsComponent } from './components/side-buttons/side-buttons.component';
+import { AdvertisersManageComponent } from './pages/advertisers-manage/advertisers-manage.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { AdvertisersAddAdvertisementComponent } from './pages/advertisers-add-advertisement/advertisers-add-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +47,12 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     AdvertisersComponent,
     DriversComponent,
-    ContactComponent
+    AdvertisersDashboardComponent,
+    ContactComponent,
+    SideNavComponent,
+    SideButtonsComponent,
+    AdvertisersManageComponent,
+    AdvertisersAddAdvertisementComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +72,17 @@ import { ContactComponent } from './contact/contact.component';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule, 
+    MatSelectModule, 
+    MatInputModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    NgIf, 
+    NgFor, 
+    MatButtonModule,
+    MatSidenavModule,
+    CanvasJSAngularChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

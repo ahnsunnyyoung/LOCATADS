@@ -2,7 +2,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top header-bg d-flex">
     <div>
-      <a class="navbar-brand h1" href="/">LOCATADS</a>
+      <a class="navbar-brand fw-bolder" href="/">LOCATADS</a>
     </div>
     <div class="header-nav">
       <button
@@ -22,17 +22,17 @@
         id="fixedNavbarExample2"
       >
         <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About Us</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/about']">About Us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/advertisers">Advertisers</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/advertisers']">Advertisers</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/drivers">Drivers</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/drivers']">Drivers</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/contact']">Contact</a>
           </li>
         </ul>
       </div>
