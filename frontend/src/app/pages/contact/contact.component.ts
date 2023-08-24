@@ -33,7 +33,6 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    console.log("submit")
     if (this.selectedUserType=='0') {
       this.router.navigate(['/advertisers/dashboard']);
     } else {

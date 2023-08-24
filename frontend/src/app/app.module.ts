@@ -37,6 +37,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SideButtonsComponent } from './components/side-buttons/side-buttons.component';
 import { AdvertisersManageComponent } from './pages/advertisers-manage/advertisers-manage.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { AdvertisersAddAdvertisementComponent } from './advertisers-add-advertisement/advertisers-add-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     SideNavComponent,
     SideButtonsComponent,
     AdvertisersManageComponent,
+    AdvertisersAddAdvertisementComponent,
   ],
   imports: [
     BrowserModule,

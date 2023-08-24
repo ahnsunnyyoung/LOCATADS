@@ -7,6 +7,7 @@ import { DriversComponent } from './pages/drivers/drivers.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AdvertisersDashboardComponent } from './pages/advertisers-dashboard/advertisers-dashboard.component';
 import { AdvertisersManageComponent } from './pages/advertisers-manage/advertisers-manage.component';
+import { AdvertisersAddAdvertisementComponent } from './pages/advertisers-add-advertisement/advertisers-add-advertisement.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},  
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path : 'contact' , component : ContactComponent},  
   {path : 'advertisers/dashboard' , component : AdvertisersDashboardComponent},  
   {path : 'advertisers/manage' , component : AdvertisersManageComponent},  
+  {path : 'advertisers/add' , component : AdvertisersAddAdvertisementComponent},  
 ];
 
 @NgModule({
