@@ -85,11 +85,8 @@ export class AdvertisersDashboardComponent {
 		]
 	  }]
 	}	
-<<<<<<< HEAD
 	
-=======
 
->>>>>>> d26640b7b77d5b15d4bd826eeff163262e1b93cb
 	adData = ADs;
 
 }
