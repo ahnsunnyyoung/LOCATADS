@@ -15,3 +15,23 @@
   gap: 20px;
   flex: 1 0 0;
 }
+
+.dashboard-container {
+  position: relative;
+  display: flex;
+  padding: 60px 4%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 5px;
+  border: 1px solid #B1B1B1;
+  background: #FFF;
+}
+
+.add-btn {
+  position: absolute;
+  right: 45px;
+  top: 53px;
+}
