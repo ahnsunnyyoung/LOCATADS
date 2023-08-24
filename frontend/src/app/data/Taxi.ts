@@ -1,4 +1,4 @@
-export interface Advertisement {
+export interface Taxi {
   title: string;
   views: number;
   display: number;

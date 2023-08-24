@@ -1,0 +1,40 @@
+<div class="main">
+  <div class="form-card">
+    <div class="header">
+      <h2>New Taxi</h2>
+      <p>Be ready to locate AD!</p>
+    </div>
+
+    <div class="form-group">
+
+      <div class="form input">
+        <h5>Name  <span style="color: red;">*</span></h5>
+        <mat-form-field class="example-full-width">
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>Taxi ype <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedTaxiType">
+            <mat-option [value]="option.value" *ngFor="let option of taxiTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <h5>Service type <span style="color: red;">*</span></h5>
+        <mat-form-field>
+          <mat-select [(value)]="selectedserviceType">
+            <mat-option [value]="option.value" *ngFor="let option of serviceTypes">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <button mat-stroked-button (click)="onSubmit()">Submit</button>
+
+      
+
+</div>

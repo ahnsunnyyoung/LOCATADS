@@ -38,6 +38,9 @@ import { SideButtonsComponent } from './components/side-buttons/side-buttons.com
 import { AdvertisersManageComponent } from './pages/advertisers-manage/advertisers-manage.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { AdvertisersAddAdvertisementComponent } from './pages/advertisers-add-advertisement/advertisers-add-advertisement.component';
+import { DriversDashboardComponent } from './pages/drivers-dashboard/drivers-dashboard.component';
+import { DriversManageComponent } from './pages/drivers-manage/drivers-manage.component';
+import { DriversAddTaxiComponent } from './pages/drivers-add-taxi/drivers-add-taxi.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { AdvertisersAddAdvertisementComponent } from './pages/advertisers-add-ad
     SideButtonsComponent,
     AdvertisersManageComponent,
     AdvertisersAddAdvertisementComponent,
+    DriversDashboardComponent,
+    DriversManageComponent,
+    DriversAddTaxiComponent,
   ],
   imports: [
     BrowserModule,

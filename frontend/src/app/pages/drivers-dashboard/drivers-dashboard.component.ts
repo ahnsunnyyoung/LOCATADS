@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { ADs } from 'src/app/data/mock-ad';
+import { Taxis } from 'src/app/data/mock-taxi';
 
 @Component({
-  selector: 'app-advertisers-dashboard',
-  templateUrl: './advertisers-dashboard.component.html',
-  styleUrls: ['./advertisers-dashboard.component.scss']
+  selector: 'app-drivers-dashboard',
+  templateUrl: './drivers-dashboard.component.html',
+  styleUrls: ['./drivers-dashboard.component.scss']
 })
-export class AdvertisersDashboardComponent {
+export class DriversDashboardComponent {
 
   chart: any;
 	chartOptions = {
@@ -64,26 +64,25 @@ export class AdvertisersDashboardComponent {
 	  },{
 		type: "spline",
 		showInLegend: true,
-		name: "No of Taxis",
+		name: "Driving Time",
 		axisYType: "secondary",
 		dataPoints: [
-			{ label: "Jan", y: 372 },
-			{ label: "Feb", y: 412 },
-			{ label: "Mar", y: 572 },
-			{ label: "Apr", y: 224 },
-			{ label: "May", y: 246 },
-			{ label: "Jun", y: 601 },
-			{ label: "Jul", y: 642 },
-			{ label: "Aug", y: 590 },
-			{ label: "Sep", y: 527 },
-			{ label: "Oct", y: 273 },
-			{ label: "Nov", y: 251 },
-			{ label: "Dec", y: 331 }
+			{ label: "Jan", y: 12 },
+			{ label: "Feb", y: 5 },
+			{ label: "Mar", y: 4 },
+			{ label: "Apr", y: 6.5 },
+			{ label: "May", y: 7 },
+			{ label: "Jun", y: 9.4 },
+			{ label: "Jul", y: 10 },
+			{ label: "Aug", y: 10.1 },
+			{ label: "Sep", y: 8 },
+			{ label: "Oct", y: 8.8 },
+			{ label: "Nov", y: 11 },
+			{ label: "Dec", y: 9 }
 		]
 	  }]
 	}	
 	
 
-	adData = ADs;
-
+	taxiData = Taxis;
 }

@@ -1,56 +1,56 @@
 <div class="main">
-  <app-side-nav userType="advertiser"></app-side-nav>
+  <app-side-nav userType="driver"></app-side-nav>
 
   <div class="content">
-    <h2>Manage ADs</h2>
+    <h2>Manage Taxis</h2>
 
     <div class="dashboard-container">
       <button class="btn btn-primary btn-rounded add-btn" (click)="onAdd()">Add</button>
 
-      <h4>Advertisements</h4>
-      <p>There are a total of {{adData.length | number}} launched advertisements</p>
+      <h4>Taxis</h4>
+      <p>There are a total of {{taxiData.length | number}} registered taxis</p>
 
       <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
           <tr>
-            <th>AD</th>
+            <th>Taxi</th>
             <th>Views</th>
             <th>Display</th>
-            <th>Visibility</th>
+            <th>Operation</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ad of adData">
+          <tr *ngFor="let taxi of taxiData">
             <td>
               <div class="d-flex align-items-center">
                 <img
-                    src={{ad.img}}
-                    alt={{ad.img_alt}}
+                    src={{taxi.img}}
+                    alt={{taxi.img_alt}}
                     style="width: 85px; height: 45px"
                     />
                 <div class="ms-3">
-                  <p class="fw-bold mb-0">{{ad.title}}</p>
+                  <p class="fw-bold mb-0">{{taxi.title}}</p>
                 </div>
               </div>
             </td>
             <td>
-              <p class="fw-normal mb-0">{{ad.views | number}}</p>
+              <p class="fw-normal mb-0">{{taxi.views | number}}</p>
             </td>
             <td>
-              <p class="fw-normal mb-0">{{ad.display | number}}</p>
+              <p class="fw-normal mb-0">{{taxi.display | number}}</p>
             </td>
             <td>
               <span class="badge rounded-pill d-inline" 
                 [ngClass]="{
-                'badge-success':ad.status === 'Active',
-                'badge-primary':ad.status === 'Awaiting',
-                'badge-warning':ad.status === 'Deactivate',
-                }">{{ad.status}}</span>
+                'badge-success':taxi.status === 'Active',
+                'badge-primary':taxi.status === 'Awaiting',
+                'badge-warning':taxi.status === 'Deactivate',
+                }">{{taxi.status}}</span>
             </td>
             <td>
-              <p class="fw-normal mb-0">{{ad.date}}</p>
+              <p class="fw-normal mb-0">{{taxi.date}}</p>
             </td>
             <td>
               <button type="button" class="btn btn-link btn-sm btn-rounded">
