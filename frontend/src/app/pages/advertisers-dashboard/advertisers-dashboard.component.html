@@ -1,0 +1,43 @@
+<div class="main">
+  <app-side-nav></app-side-nav>
+
+  <div class="content">
+    <h2>Dashboards</h2>
+
+    <div class="dashboard-container">
+      <h4>Analysis</h4>
+      <p>Over the past 28days, your ADs has 12,001 views</p>
+      <div class="chart-container">
+        <canvasjs-chart [options]="chartOptions" [styles]="{height:'360px'}"></canvasjs-chart>   
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+      <h4>AD Summary</h4>
+      <p>There are a total of 5 launched advertisements</p>
+
+      <ul class="list-group list-group-light w-100">
+        <li class="list-group-item d-flex justify-content-between align-items-center"  *ngFor="let ad of adData">
+          <div class="d-flex align-items-center">
+            <img src={{ad.img}} alt={{ad.img_alt}} style="width: 85px; height: 45px" />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{ad.title}}</p>
+              <p class="text-muted mb-0">View {{ad.views | number}}&nbsp;&nbsp;&nbsp;&nbsp;Display {{ad.display | number}}</p>
+            </div>
+          </div>
+          <span class="badge rounded-pill"
+          [ngClass]="{
+            'badge-success':ad.status === 'Active',
+            'badge-primary':ad.status === 'Awaiting',
+            'badge-warning':ad.status === 'Deactivate',
+          }">{{ad.status}}</span>
+        </li>
+      </ul>
+
+      <a class="w-100 text-center" href="/advertisers/manage">Manage ADs</a>
+
+    </div>
+
+  </div>
+
+</div>

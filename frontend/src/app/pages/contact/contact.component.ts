@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf, NgFor} from '@angular/common';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
+import { Router } from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 interface UserType {
   value: string;
@@ -15,10 +11,10 @@ interface UserType {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgFor, MatButtonModule],
 })
 export class ContactComponent {
+  constructor(private router: Router) { }
+
   userTypes: UserType[] = [
     {value: '0', viewValue: 'Advertiser'},
     {value: '1', viewValue: 'Driver'},
@@ -34,6 +30,16 @@ export class ContactComponent {
     }
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  onSubmit() {
+    console.log("submit")
+    if (this.selectedUserType=='0') {
+      this.router.navigate(['/advertisers/dashboard']);
+    } else {
+      this.router.navigate(['/drivers/dashboard']);
+
+    }
   }
   
 }
