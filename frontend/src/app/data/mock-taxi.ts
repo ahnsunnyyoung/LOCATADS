@@ -1,8 +1,8 @@
-import { Advertisement } from "./Advertisement";
+import { Taxi } from "./Taxi";
 
-export const ADs: Advertisement[] = [
+export const Taxis: Taxi[] = [
   {
-    title: "Advertisement 1",
+    title: "Taxi 1",
     views: 2080,
     display: 234,
     img: "/assets/images/ex_img.png",
@@ -11,7 +11,7 @@ export const ADs: Advertisement[] = [
     date: "2023.05.24"
   },
   {
-    title: "Advertisement 2",
+    title: "Taxi 2",
     views: 1353,
     display: 235,
     img: "/assets/images/ex_img.png",
@@ -20,7 +20,7 @@ export const ADs: Advertisement[] = [
     date: "2023.05.21"
   },
   {
-    title: "Advertisement 3",
+    title: "Taxi 3",
     views: 6434,
     display: 764,
     img: "/assets/images/ex_img.png",
