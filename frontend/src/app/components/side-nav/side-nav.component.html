@@ -4,18 +4,8 @@
     LOCATADS
   </a>
 
-  <ul *ngIf="userType === 'advertiser'" class="nav-container navbar-nav">
-    <app-side-buttons class="nav-item" routerLink="/advertisers/dashboard" title="Dashboard"></app-side-buttons>
-    <app-side-buttons class="nav-item" routerLink="/advertisers/manage" title="Manage ADs"></app-side-buttons>
-    <app-side-buttons class="nav-item" routerLink="/advertisers/support" title="Support"></app-side-buttons>
-    <app-side-buttons class="nav-item" title="Logout"></app-side-buttons>
-  </ul>
-
-  <ul *ngIf="userType === 'driver'" class="nav-container navbar-nav">
-    <app-side-buttons class="nav-item" routerLink="/drivers/dashboard" title="Dashboard"></app-side-buttons>
-    <app-side-buttons class="nav-item" routerLink="/drivers/manage" title="Manage Taxis"></app-side-buttons>
-    <app-side-buttons class="nav-item" routerLink="/drivers/support" title="Support"></app-side-buttons>
-    <app-side-buttons class="nav-item" title="Logout"></app-side-buttons>
+  <ul class="nav-container navbar-nav">
+    <app-side-buttons *ngFor="let nav of navData" class="nav-item" routerLink={{nav.routerLink}} title={{nav.title}}></app-side-buttons>
   </ul>
 
 </div>
