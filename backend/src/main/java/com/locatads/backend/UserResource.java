@@ -47,4 +47,5 @@ public class UserResource {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

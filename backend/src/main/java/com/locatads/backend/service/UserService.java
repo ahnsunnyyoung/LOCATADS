@@ -1,18 +1,19 @@
 package com.locatads.backend.service;
 
 import com.locatads.backend.exception.UserNotFoundException;
+import com.locatads.backend.model.Ad;
 import com.locatads.backend.model.User;
 import com.locatads.backend.repo.UserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional
 public class UserService {
     private final UserRepo userRepo;
-
     public UserService(UserRepo userRepo){
         this.userRepo = userRepo;
     }
@@ -21,9 +22,7 @@ public class UserService {
         return userRepo.save(user);
     }
 
-    public List<User> findAllUsers() {
-        return userRepo.findAll();
-    }
+    public List<User> findAllUsers() { return userRepo.findAll(); }
 
     public User updateUser(User user) {
         return userRepo.save(user);
@@ -36,4 +35,23 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
+    public User addAdToUser(Ad ad, Long userId) {
+        User user = this.findUserById(userId);
+        List<Ad> newAdList = user.getAdList();
+        newAdList.add(ad);
+        user.setAdList(newAdList);
+        return userRepo.save(user);
+    }
+
+    public User updateAdToUser(Ad newAd, Long userId) {
+        User user = this.findUserById(userId);
+        List<Ad> newAdList = user.getAdList();
+//        update user adlist to updated ad
+        for(int i = 0 ; i<newAdList.size(); i++){
+            if(Objects.equals(newAdList.get(i).getId(), newAd.getId())){
+                newAdList.set(i,newAd);
+            }
+        }
+        return userRepo.save(user);
+    }
 }
