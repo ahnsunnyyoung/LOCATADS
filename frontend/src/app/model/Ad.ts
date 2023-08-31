@@ -10,6 +10,6 @@ export interface Ad {
   display: number;
   img: string;
   img_alt: string;
-  status: string;
+  status: number;
   date: string;
 }

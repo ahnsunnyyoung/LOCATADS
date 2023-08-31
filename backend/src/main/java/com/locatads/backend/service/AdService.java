@@ -34,8 +34,9 @@ public class AdService {
         userService.updateAdToUser(ad, userId);
         return adRepo.save(ad);
     }
-    public void deleteAd(Long id) {
-        adRepo.deleteAdById(id);
+    public void deleteAd(Long adId, Long userId) {
+        userService.deleteAdToUser(adId, userId);
+        adRepo.deleteAdById(adId);
     }
     public Ad findAdById(Long id) {
         return adRepo.findAdById(id)

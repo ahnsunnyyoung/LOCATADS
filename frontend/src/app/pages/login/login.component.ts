@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       (response: User) => {
         if(input.password===response.password){
           console.log("login success!")
+          sessionStorage.setItem("loginID", response.id.toString());
           if(response.type===0){
             this.router.navigate(['/advertisers/dashboard']);
           } else {

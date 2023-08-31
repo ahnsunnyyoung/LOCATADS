@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdService } from 'src/app/service/ad.service';
+import { Ad } from 'src/app/model/Ad';
+import {FormControl, Validators} from '@angular/forms';
 
 interface SelectType {
   value: string;
@@ -11,10 +15,14 @@ interface SelectType {
   templateUrl: './advertisers-add-advertisement.component.html',
   styleUrls: ['./advertisers-add-advertisement.component.scss']
 })
-export class AdvertisersAddAdvertisementComponent {
+export class AdvertisersAddAdvertisementComponent implements OnInit{
+  userId!: number;
+  adTitle: any;
 
-  constructor(private router: Router) { }
-
+	constructor(private router: Router, private adService: AdService) {}
+  ngOnInit(): void {
+    this.userId = Number(sessionStorage.getItem("loginID"))
+  }
   adTypes: SelectType[] = [
     {value: '0', viewValue: 'Product'},
     {value: '1', viewValue: 'Event'},
@@ -50,13 +58,24 @@ export class AdvertisersAddAdvertisementComponent {
     {value: '2', viewValue: 'Bronze Level'},
   ];
 
-  selectedAdType = this.adTypes[0].value;
+  selectedAdType = null;
   selectedtargetAudienceType = this.targetAudienceTypes[0].value;
   selectedweatherType = this.weatherTypes[0].value;
   selectedtimeType = this.timeTypes[0].value;
   selectedserviceType = this.serviceTypes[0].value;
 
-  onSubmit() {
-    this.router.navigate(['/advertisers/manage']);
+  onSubmit(addForm: NgForm) {
+    if(addForm.invalid) {
+      alert("Put all information needed!")
+      return;
+    }else{
+      addForm.value.date = new Date();
+      this.adService.addAd(addForm.value, this.userId).subscribe(
+        (response: Ad) => {
+          console.log(response);
+          this.router.navigate(['/advertisers/manage']);
+        }
+      );
+    }
   }
 }

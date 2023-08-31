@@ -13,7 +13,7 @@ export const ADs: Ad[] = [
     display: 234,
     img: "/assets/images/ex_img.png",
     img_alt: "ad_ex_thumbnail",
-    status: "Active",
+    status: 0,
     date: "2023.05.24"
   },
   {
@@ -28,7 +28,7 @@ export const ADs: Ad[] = [
     display: 235,
     img: "/assets/images/ex_img.png",
     img_alt: "ad_ex_thumbnail",
-    status: "Deactivate",
+    status: 0,
     date: "2023.05.21"
   },
   {
@@ -43,7 +43,7 @@ export const ADs: Ad[] = [
     display: 764,
     img: "/assets/images/ex_img.png",
     img_alt: "ad_ex_thumbnail",
-    status: "Awaiting",
+    status: 0,
     date: "2023.02.02"
   },
 ];

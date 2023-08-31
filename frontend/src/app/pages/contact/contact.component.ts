@@ -55,12 +55,19 @@ export class ContactComponent {
   }
 
   public onSubmit(addForm: NgForm): void {
-    this.UserService.addUser(addForm.value).subscribe(
-      (response: User) => {
-        console.log(response);
-        this.getUsers();
-      }
-    );
+    
+    if(addForm.invalid) {
+      alert("Put all information needed!")
+      return;
+    }else {
+      this.UserService.addUser(addForm.value).subscribe(
+        (response: User) => {
+          alert("Successfully created account!")
+          this.getUsers();
+          this.router.navigate(['/login']);
+        }
+      );
+    }
   }
 
   // onSubmit() {

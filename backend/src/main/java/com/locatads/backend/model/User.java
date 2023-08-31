@@ -13,6 +13,7 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private Integer type;
 //    0 -> Advertiser, 1-> Driver

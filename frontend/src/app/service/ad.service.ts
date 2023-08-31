@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ad } from '../model/Ad';
 import { environment } from 'src/environments/environment';
@@ -14,8 +14,8 @@ export class AdService {
     return this.http.get<Ad[]>(`${this.apiServerUrl}/ad/all`);
   }
 
-  public getUserAds(): Observable<Ad[]> {
-    return this.http.get<Ad[]>(`${this.apiServerUrl}/ad/all`);
+  public getUserAds(userId: number): Observable<Ad[]> {
+    return this.http.get<Ad[]>(`${this.apiServerUrl}/ad/findByUser/${userId}`);
   }
 
   public addAd(Ad: Ad, userId: number): Observable<Ad> {
@@ -27,7 +27,14 @@ export class AdService {
     return this.http.put<Ad>(`${this.apiServerUrl}/ad/update/${userId}`, Ad);
   }
 
-  // public deleteAd(AdId: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiServerUrl}/ad/delete/${AdId}`);
-  // }
+  public deleteAd(adId: number, userId: number): Observable<Ad> {
+    // Initialize Params Object
+    let params = new HttpParams();
+
+    // Begin assigning parameters
+    params = params.append('adId', adId);
+    params = params.append('userId', userId)
+
+    return this.http.delete<Ad>(`${this.apiServerUrl}/ad/delete`, { params: params });
+  }
 }
