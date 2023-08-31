@@ -5,30 +5,28 @@
       <p>More information will make your advertisement to be shine</p>
     </div>
 
-    <div class="form-group">
+    <form #addForm="ngForm"(ngSubmit)="onSubmit(addForm)" class="form-group">
 
       <div class="form input">
         <h5>Title  <span style="color: red;">*</span></h5>
         <mat-form-field class="example-full-width">
-          <input matInput>
+          <input type="text" ngModel name="adTitle" id="adTitle" matInput required>
         </mat-form-field>
       </div>
 
       <div class="form">
         <h5>AD Type <span style="color: red;">*</span></h5>
         <mat-form-field>
-          <mat-select [(value)]="selectedAdType">
+          <mat-select ngModel name="adType" id="adType" [(value)]="selectedAdType" required>
             <mat-option [value]="option.value" *ngFor="let option of adTypes">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
-      
-
       <div class="form">
         <h5>Target audience <span style="color: red;">*</span></h5>
         <mat-form-field>
-          <mat-select [(value)]="selectedtargetAudienceType">
+          <mat-select ngModel name="adTarget" id="adTarget" [(value)]="selectedtargetAudienceType" required>
             <mat-option [value]="option.value" *ngFor="let option of targetAudienceTypes">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -37,7 +35,7 @@
       <div class="form">
         <h5>Preferred weather <span style="color: red;">*</span></h5>
         <mat-form-field>
-          <mat-select [(value)]="selectedweatherType">
+          <mat-select ngModel name="adWeather" id="adWeather" [(value)]="selectedweatherType" required>
             <mat-option [value]="option.value" *ngFor="let option of weatherTypes">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -46,7 +44,7 @@
       <div class="form">
         <h5>Preferred time <span style="color: red;">*</span></h5>
         <mat-form-field>
-          <mat-select [(value)]="selectedtimeType">
+          <mat-select ngModel name="adTime" id="adTime" [(value)]="selectedtimeType" required>
             <mat-option [value]="option.value" *ngFor="let option of timeTypes">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -55,15 +53,15 @@
       <div class="form">
         <h5>Service type <span style="color: red;">*</span></h5>
         <mat-form-field>
-          <mat-select [(value)]="selectedserviceType">
+          <mat-select ngModel name="adTiadServiceType" id="adTiadServiceType" [(value)]="selectedserviceType" required>
             <mat-option [value]="option.value" *ngFor="let option of serviceTypes">{{ option.viewValue }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
 
-      <button mat-stroked-button (click)="onSubmit()">Submit</button>
+      <button mat-stroked-button type="submit">Submit</button>
 
       
 
-</div>
+    </form>

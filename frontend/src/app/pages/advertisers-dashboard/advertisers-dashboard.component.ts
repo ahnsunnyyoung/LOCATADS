@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Ad } from 'src/app/model/Ad';
 import { ADs } from 'src/app/model/mock-ad';
+import { AdService } from 'src/app/service/ad.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advertisers-dashboard',
   templateUrl: './advertisers-dashboard.component.html',
   styleUrls: ['./advertisers-dashboard.component.scss']
 })
-export class AdvertisersDashboardComponent {
+export class AdvertisersDashboardComponent implements OnInit {
+	userId!: number;
+	constructor(private route: Router, private adService: AdService) {}
+
+	adData = ADs;
+  
+	ngOnInit(): void {
+		this.userId = Number(sessionStorage.getItem("loginID"))
+		this.adService.getUserAds(this.userId).subscribe(
+			(response: Ad[]) => {
+				console.log(response);
+        this.adData = response;
+			}
+		);
+  }
 
   chart: any;
 	chartOptions = {
@@ -82,8 +99,5 @@ export class AdvertisersDashboardComponent {
 		]
 	  }]
 	}	
-	
-
-	adData = ADs;
 
 }

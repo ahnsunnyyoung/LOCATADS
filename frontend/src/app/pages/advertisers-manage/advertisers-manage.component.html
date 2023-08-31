@@ -22,11 +22,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ad of adData">
+          <tr *ngFor="let ad of adData" [attr.id]="ad.id">
             <td>
               <div class="d-flex align-items-center">
                 <img
-                    src={{ad.img}}
+                    [src]="ad.img!= null ? ad.img : '/assets/images/ex_img.png'"
                     alt={{ad.img_alt}}
                     style="width: 85px; height: 45px"
                     />
@@ -44,19 +44,23 @@
             <td>
               <span class="badge rounded-pill d-inline" 
                 [ngClass]="{
-                'badge-success':ad.status === 'Active',
-                'badge-primary':ad.status === 'Awaiting',
-                'badge-warning':ad.status === 'Deactivate',
-                }">{{ad.status}}</span>
+                'badge-success':ad.status === 1,
+                'badge-primary':ad.status === 0,
+                'badge-warning':ad.status === 2,
+                }">{{ ad.status === 1 ? "Active"
+                  :ad.status === 0 ? "Awaiting"
+                  :ad.status === 2 ?"Deactive"
+                  :""
+                }}</span>
             </td>
             <td>
               <p class="fw-normal mb-0">{{ad.date}}</p>
             </td>
             <td>
-              <button type="button" class="btn btn-link btn-sm btn-rounded">
+              <button type="button" (click)="deleteAd(ad.id)" class="btn btn-link btn-sm btn-rounded">
                 Delete
               </button>
-              <button type="button" class="btn btn-link btn-sm btn-rounded">
+              <button type="button" (click)="editAd(ad)" class="btn btn-link btn-sm btn-rounded">
                 Edit
               </button>
             </td>

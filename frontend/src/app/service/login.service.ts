@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class LoginService {
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+  USER_ID_SESSION_ATTRIBUTE_NAME = 'authenticatedUserID'
 
   public email: any;
   public password: any;;
