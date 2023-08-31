@@ -48,4 +48,10 @@ public class UserResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/login/{email}")
+    public ResponseEntity<User> login(@PathVariable("email") String email) {
+        User user = userService.findUserByEmail(email);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }

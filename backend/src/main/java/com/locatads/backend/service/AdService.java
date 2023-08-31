@@ -22,7 +22,8 @@ public class AdService {
     }
     public Ad addAd(Ad ad, Long userId) {
         userService.addAdToUser(ad, userId);
-        return adRepo.save(ad);
+//        return adRepo.save(ad);
+        return ad;
     }
     public List<Ad> findAllAds() { return adRepo.findAll(); }
     public List<Ad> findByUserId(Long userId) {
