@@ -11,21 +11,24 @@ public class Ad implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User userId;
     private String adTitle;
-    private String adType;
+    private Integer adType;
     private Integer adTarget;
-    private String adWeather;
-    private String adTime;
-    private String adServiceType;
+    private Integer adWeather;
+    private Integer adTime;
+    private Integer adServiceType;
     private Integer views;
     private Integer display;
-    private String status;
+    private Integer status;
     private Date date;
 
     public Ad() {
     }
 
-    public Ad(String adTitle, String adType, Integer adTarget, String adWeather, String adTime, String adServiceType, Integer views, Integer display, String status, Date date) {
+    public Ad(String adTitle, Integer adType, Integer adTarget, Integer adWeather, Integer adTime, Integer adServiceType, Integer views, Integer display, Integer status, Date date) {
         this.adTitle = adTitle;
         this.adType = adType;
         this.adTarget = adTarget;
@@ -54,11 +57,11 @@ public class Ad implements Serializable {
         this.adTitle = adTitle;
     }
 
-    public String getAdType() {
+    public Integer getAdType() {
         return adType;
     }
 
-    public void setAdType(String adType) {
+    public void setAdType(Integer adType) {
         this.adType = adType;
     }
 
@@ -70,27 +73,27 @@ public class Ad implements Serializable {
         this.adTarget = adTarget;
     }
 
-    public String getAdWeather() {
+    public Integer getAdWeather() {
         return adWeather;
     }
 
-    public void setAdWeather(String adWeather) {
+    public void setAdWeather(Integer adWeather) {
         this.adWeather = adWeather;
     }
 
-    public String getAdTime() {
+    public Integer getAdTime() {
         return adTime;
     }
 
-    public void setAdTime(String adTime) {
+    public void setAdTime(Integer adTime) {
         this.adTime = adTime;
     }
 
-    public String getAdServiceType() {
+    public Integer getAdServiceType() {
         return adServiceType;
     }
 
-    public void setAdServiceType(String adServiceType) {
+    public void setAdServiceType(Integer adServiceType) {
         this.adServiceType = adServiceType;
     }
 
@@ -110,11 +113,11 @@ public class Ad implements Serializable {
         this.display = display;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

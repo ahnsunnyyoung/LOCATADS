@@ -35,6 +35,11 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
+    public User findUserByEmail(String email) {
+        return userRepo.findUserByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User by email " + email + " was not found"));
+    }
+
     public User addAdToUser(Ad ad, Long userId) {
         User user = this.findUserById(userId);
         List<Ad> newAdList = user.getAdList();
