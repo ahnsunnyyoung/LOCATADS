@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ADs } from 'src/app/data/mock-ad';
+import { ADs } from 'src/app/model/mock-ad';
 
 @Component({
   selector: 'app-advertisers-dashboard',

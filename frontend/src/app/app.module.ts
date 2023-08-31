@@ -41,6 +41,10 @@ import { AdvertisersAddAdvertisementComponent } from './pages/advertisers-add-ad
 import { DriversDashboardComponent } from './pages/drivers-dashboard/drivers-dashboard.component';
 import { DriversManageComponent } from './pages/drivers-manage/drivers-manage.component';
 import { DriversAddTaxiComponent } from './pages/drivers-add-taxi/drivers-add-taxi.component';
+import { UserService } from './service/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './pages/login/login-form/login-form.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,8 @@ import { DriversAddTaxiComponent } from './pages/drivers-add-taxi/drivers-add-ta
     DriversDashboardComponent,
     DriversManageComponent,
     DriversAddTaxiComponent,
+    LoginFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,8 +95,9 @@ import { DriversAddTaxiComponent } from './pages/drivers-add-taxi/drivers-add-ta
     MatButtonModule,
     MatSidenavModule,
     CanvasJSAngularChartsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
