@@ -21,21 +21,19 @@ public class AdService {
         this.userService = userService;
     }
     public Ad addAd(Ad ad, Long userId) {
-        userService.addAdToUser(ad, userId);
-//        return adRepo.save(ad);
-        return ad;
+//        userService.addAdToUser(ad, userId);
+        return adRepo.save(ad);
+//        return ad;
     }
     public List<Ad> findAllAds() { return adRepo.findAll(); }
-    public List<Ad> findByUserId(Long userId) {
-        User user = userService.findUserById(userId);
-        return user.getAdList(); }
+    public List<Ad> findByUid(Long userId) {
+        //        User user = userService.findUserById(userId);
+        return adRepo.findByUid(userId); }
 
     public Ad updateAd(Ad ad, Long userId) {
-        userService.updateAdToUser(ad, userId);
         return adRepo.save(ad);
     }
     public void deleteAd(Long adId, Long userId) {
-        userService.deleteAdToUser(adId, userId);
         adRepo.deleteAdById(adId);
     }
     public Ad findAdById(Long id) {

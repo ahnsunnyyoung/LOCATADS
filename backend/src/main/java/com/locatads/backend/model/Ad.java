@@ -11,9 +11,11 @@ public class Ad implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User userId;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//
+//    @JoinColumn(name = "user_id")
+    @Column( updatable = false)
+    private Long uid;
     private String adTitle;
     private Integer adType;
     private Integer adTarget;
@@ -28,7 +30,8 @@ public class Ad implements Serializable {
     public Ad() {
     }
 
-    public Ad(String adTitle, Integer adType, Integer adTarget, Integer adWeather, Integer adTime, Integer adServiceType, Integer views, Integer display, Integer status, Date date) {
+    public Ad(Long uid, String adTitle, Integer adType, Integer adTarget, Integer adWeather, Integer adTime, Integer adServiceType, Integer views, Integer display, Integer status, Date date) {
+        this.uid = uid;
         this.adTitle = adTitle;
         this.adType = adType;
         this.adTarget = adTarget;
@@ -47,6 +50,14 @@ public class Ad implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
     }
 
     public String getAdTitle() {

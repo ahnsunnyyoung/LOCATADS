@@ -18,12 +18,12 @@ public class User implements Serializable {
     private Integer type;
 //    0 -> Advertiser, 1-> Driver
     private String adCompanyName;
-    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
-    @JoinColumn(name = "user_id",referencedColumnName="id")
-    private List<Ad> AdList = new ArrayList<Ad>();
-    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
-    @JoinColumn(name = "user_id",referencedColumnName="id")
-    private List<Taxi> TaxiList = new ArrayList<Taxi>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private List<Ad> AdList = new ArrayList<Ad>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private List<Taxi> TaxiList = new ArrayList<Taxi>();
     private String password;
 
     public User() {
@@ -77,21 +77,21 @@ public class User implements Serializable {
         this.adCompanyName = adCompanyName;
     }
 
-    public List<Ad> getAdList() {
-        return AdList;
-    }
-
-    public void setAdList(List<Ad> adList) {
-        AdList = adList;
-    }
-
-    public List<Taxi> getTaxiList() {
-        return TaxiList;
-    }
-
-    public void setTaxiList(List<Taxi> taxiList) {
-        TaxiList = taxiList;
-    }
+//    public List<Ad> getAdList() {
+//        return AdList;
+//    }
+//
+//    public void setAdList(List<Ad> adList) {
+//        AdList = adList;
+//    }
+//
+//    public List<Taxi> getTaxiList() {
+//        return TaxiList;
+//    }
+//
+//    public void setTaxiList(List<Taxi> taxiList) {
+//        TaxiList = taxiList;
+//    }
 
     public String getPassword() {
         return password;

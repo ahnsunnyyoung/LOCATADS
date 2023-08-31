@@ -40,30 +40,30 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User by email " + email + " was not found"));
     }
 
-    public User addAdToUser(Ad ad, Long userId) {
-        User user = this.findUserById(userId);
-        List<Ad> newAdList = user.getAdList();
-        newAdList.add(ad);
-        user.setAdList(newAdList);
-        return userRepo.save(user);
-    }
-
-    public User updateAdToUser(Ad newAd, Long userId) {
-        User user = this.findUserById(userId);
-        List<Ad> newAdList = user.getAdList();
-//        update user adlist to updated ad
-        for(int i = 0 ; i<newAdList.size(); i++){
-            if(Objects.equals(newAdList.get(i).getId(), newAd.getId())){
-                newAdList.set(i,newAd);
-            }
-        }
-        return userRepo.save(user);
-    }
-
-    public User deleteAdToUser(Long adId, Long userId) {
-        User user = this.findUserById(userId);
-        List<Ad> userAdList = user.getAdList();
-        userAdList.removeIf(ad -> Objects.equals(ad.getId(), adId));
-        return userRepo.save(user);
-    }
+//    public User addAdToUser(Ad ad, Long userId) {
+//        User user = this.findUserById(userId);
+//        List<Ad> newAdList = user.getAdList();
+//        newAdList.add(ad);
+//        user.setAdList(newAdList);
+//        return userRepo.save(user);
+//    }
+//
+//    public User updateAdToUser(Ad newAd, Long userId) {
+//        User user = this.findUserById(userId);
+//        List<Ad> newAdList = user.getAdList();
+////        update user adlist to updated ad
+//        for(int i = 0 ; i<newAdList.size(); i++){
+//            if(Objects.equals(newAdList.get(i).getId(), newAd.getId())){
+//                newAdList.set(i,newAd);
+//            }
+//        }
+//        return userRepo.save(user);
+//    }
+//
+//    public User deleteAdToUser(Long adId, Long userId) {
+//        User user = this.findUserById(userId);
+//        List<Ad> userAdList = user.getAdList();
+//        userAdList.removeIf(ad -> Objects.equals(ad.getId(), adId));
+//        return userRepo.save(user);
+//    }
 }

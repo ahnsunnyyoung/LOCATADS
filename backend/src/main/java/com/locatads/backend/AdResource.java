@@ -32,7 +32,7 @@ public class AdResource {
 
     @GetMapping("/findByUser/{userId}")
     public ResponseEntity<List<Ad>> getUserById(@PathVariable("userId") Long userId) {
-        List<Ad> ads = adService.findByUserId(userId);
+        List<Ad> ads = adService.findByUid(userId);
         return new ResponseEntity<>(ads, HttpStatus.OK);
     }
 
