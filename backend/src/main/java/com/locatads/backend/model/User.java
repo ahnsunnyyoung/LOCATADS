@@ -3,6 +3,8 @@ package com.locatads.backend.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -15,15 +17,23 @@ public class User implements Serializable {
     private Integer type;
 //    0 -> Advertiser, 1-> Driver
     private String adCompanyName;
+    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+    @JoinColumn(name = "user_id",referencedColumnName="id")
+    private List<Ad> AdList = new ArrayList<Ad>();
+    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+    @JoinColumn(name = "user_id",referencedColumnName="id")
+    private List<Taxi> TaxiList = new ArrayList<Taxi>();
+    private String password;
 
     public User() {
     }
 
-    public User(String name, String email, Integer type, String adCompanyName) {
+    public User(String name, String email, Integer type, String adCompanyName, String password) {
         this.name = name;
         this.email = email;
         this.type = type;
         this.adCompanyName = adCompanyName;
+        this.password = password;
     }
 
     public Long getId() {
@@ -66,14 +76,27 @@ public class User implements Serializable {
         this.adCompanyName = adCompanyName;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", type=" + type +
-                ", adCompanyName='" + adCompanyName + '\'' +
-                '}';
+    public List<Ad> getAdList() {
+        return AdList;
+    }
+
+    public void setAdList(List<Ad> adList) {
+        AdList = adList;
+    }
+
+    public List<Taxi> getTaxiList() {
+        return TaxiList;
+    }
+
+    public void setTaxiList(List<Taxi> taxiList) {
+        TaxiList = taxiList;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
