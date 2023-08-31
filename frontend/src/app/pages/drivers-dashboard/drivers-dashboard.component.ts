@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Taxis } from 'src/app/data/mock-taxi';
+import { Taxis } from 'src/app/model/mock-taxi';
 
 @Component({
   selector: 'app-drivers-dashboard',
