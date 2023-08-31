@@ -59,4 +59,11 @@ public class UserService {
         }
         return userRepo.save(user);
     }
+
+    public User deleteAdToUser(Long adId, Long userId) {
+        User user = this.findUserById(userId);
+        List<Ad> userAdList = user.getAdList();
+        userAdList.removeIf(ad -> Objects.equals(ad.getId(), adId));
+        return userRepo.save(user);
+    }
 }

@@ -20,9 +20,9 @@ public class Ad implements Serializable {
     private Integer adWeather;
     private Integer adTime;
     private Integer adServiceType;
-    private Integer views;
-    private Integer display;
-    private Integer status;
+    private Integer views = 0;
+    private Integer display = 0;
+    private Integer status = 0;
     private Date date;
 
     public Ad() {

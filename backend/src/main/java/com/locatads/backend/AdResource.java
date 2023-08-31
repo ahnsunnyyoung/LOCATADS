@@ -48,10 +48,11 @@ public class AdResource {
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
 
-//    @DeleteMapping("/delete/{id}")
-//    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
-//        adService.deleteUser(id);
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteUser(@RequestParam Long adId,
+                                        @RequestParam Long userId) {
+        adService.deleteAd(adId,userId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
