@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 import requests
-import dublin_division_list
+import data_dublin_division_list
 
 f = open('dublin_division.txt', 'w' ,encoding='UTF8')
 f.write("name")
@@ -65,7 +65,7 @@ f.write('\n')
 
 from dms2dec.dms_convert import dms2dec
 
-result = dict(dublin_division_list.dublin_division)
+result = dict(data_dublin_division_list.dublin_division)
 print(result)
 
 f = open('dublin_division_population.txt', 'w' ,encoding='UTF8')
@@ -77,7 +77,7 @@ f.write("population")
 f.write('\n')
 
 for all_division_name, all_division_name_co in result.items():
-  for division in dublin_division_list.my_division_population:
+  for division in data_dublin_division_list.my_division_population:
     if (all_division_name==division[0]):
       f.write(all_division_name)
       f.write('\t')
