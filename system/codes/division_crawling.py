@@ -1,4 +1,4 @@
-import dublin_division_list
+import data_dublin_division_list
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,7 +8,7 @@ f.write('\t')
 f.write("coordinate")
 f.write('\n')
 
-# result = requests.get(url=dublin_division_list.href_list[0])
+# result = requests.get(url=data_dublin_division_list.href_list[0])
 # bs_obj = BeautifulSoup(result.content, "html.parser")
 # bs_obj = bs_obj.prettify()
 # bs_obj = bs_obj.split('\n')
@@ -23,11 +23,11 @@ f.write('\n')
 #     print(i[0]+", "+i[1])
 
 # CRAWLING
-for href_index in range(0,len(dublin_division_list.href_list)):
-    href_name = dublin_division_list.href_list[href_index][0]
-    href = dublin_division_list.href_list[href_index][1]
-    for my_index in range(0,len(dublin_division_list.my_division_population)):
-      my_name = dublin_division_list.my_division_population[my_index][0]
+for href_index in range(0,len(data_dublin_division_list.href_list)):
+    href_name = data_dublin_division_list.href_list[href_index][0]
+    href = data_dublin_division_list.href_list[href_index][1]
+    for my_index in range(0,len(data_dublin_division_list.my_division_population)):
+      my_name = data_dublin_division_list.my_division_population[my_index][0]
       if(my_name==href_name):
         f.write(href_name)
         f.write('\t')
