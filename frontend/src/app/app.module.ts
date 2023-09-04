@@ -45,7 +45,6 @@ import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { LoginComponent } from './pages/login/login.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { ModalModule } from './components/modal/modal.module';
 
 @NgModule({
@@ -98,7 +97,6 @@ import { ModalModule } from './components/modal/modal.module';
     MatSidenavModule,
     CanvasJSAngularChartsModule,
     HttpClientModule,
-    MatDialogModule,
     ModalModule
   ],
   providers: [UserService],
