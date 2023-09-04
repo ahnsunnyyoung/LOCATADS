@@ -31,10 +31,10 @@ public class AdService {
         //        User user = userService.findUserById(userId);
         return adRepo.findByUid(userId); }
 
-    public Ad updateAd(Ad ad, Long userId) {
+    public Ad updateAd(Ad ad) {
         return adRepo.save(ad);
     }
-    public void deleteAd(Long adId, Long userId) {
+    public void deleteAd(Long adId) {
         adRepo.deleteAdById(adId);
     }
     public Ad findAdById(Long id) {

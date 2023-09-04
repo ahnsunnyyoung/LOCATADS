@@ -33,7 +33,7 @@ export class AdvertisersManageComponent implements OnInit {
   }
 
   deleteAd(adId: number) {
-		this.adService.deleteAd(adId,this.userId).subscribe(
+		this.adService.deleteAd(adId).subscribe(
 			(res:Ad) => {
         window.location.reload();
         alert("Deleted");

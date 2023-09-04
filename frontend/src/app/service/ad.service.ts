@@ -23,18 +23,11 @@ export class AdService {
     return this.http.post<Ad>(`${this.apiServerUrl}/ad/add/${userId}`, Ad);
   }
 
-  public updateAd(Ad: Ad, userId: number): Observable<Ad> {
-    return this.http.put<Ad>(`${this.apiServerUrl}/ad/update/${userId}`, Ad);
+  public updateAd(Ad: Ad): Observable<Ad> {
+    return this.http.put<Ad>(`${this.apiServerUrl}/ad/update`, Ad);
   }
 
-  public deleteAd(adId: number, userId: number): Observable<Ad> {
-    // Initialize Params Object
-    let params = new HttpParams();
-
-    // Begin assigning parameters
-    params = params.append('adId', adId);
-    params = params.append('userId', userId)
-
-    return this.http.delete<Ad>(`${this.apiServerUrl}/ad/delete`, { params: params });
+  public deleteAd(adId: number): Observable<Ad> {
+    return this.http.delete<Ad>(`${this.apiServerUrl}/ad/delete/${adId}`);
   }
 }

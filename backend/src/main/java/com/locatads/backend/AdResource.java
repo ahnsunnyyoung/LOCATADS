@@ -42,16 +42,15 @@ public class AdResource {
         return new ResponseEntity<>(newAd, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update/{userId}")
-    public ResponseEntity<Ad> updateUser(@RequestBody Ad ad, @PathVariable("userId") Long userId) {
-        Ad updateUser = adService.updateAd(ad, userId);
+    @PutMapping("/update")
+    public ResponseEntity<Ad> updateUser(@RequestBody Ad ad) {
+        Ad updateUser = adService.updateAd(ad);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteUser(@RequestParam Long adId,
-                                        @RequestParam Long userId) {
-        adService.deleteAd(adId,userId);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
+        adService.deleteAd(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
