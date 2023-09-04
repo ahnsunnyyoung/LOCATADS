@@ -22,6 +22,7 @@ public class AdService {
     }
     public Ad addAd(Ad ad, Long userId) {
 //        userService.addAdToUser(ad, userId);
+        ad.setUid(userId);
         return adRepo.save(ad);
 //        return ad;
     }
