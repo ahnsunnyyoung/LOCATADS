@@ -165,7 +165,6 @@ SERVICE_TYPE = {
 }
 
 def calculate(ad_info):
-  ad_score = 0
 
   preferred_weather = WEATHER_TYPE[ad_info["weather"]]
   current_weather = get_current_weather_type()
@@ -188,10 +187,10 @@ def calculate(ad_info):
   binary_score_commercial = check_commercial_level(commercial, level)
 
   weight_weather = 1
-  weight_time = 1
-  weight_density = 1
-  weight_commercial = 1
-  score = ((binary_score_weather*weight_weather)+(binary_score_time*weight_time)+(binary_score_density*weight_density)+(binary_score_commercial*weight_commercial))/4
+  weight_time = 0.52
+  weight_density = 0.65
+  weight_commercial = 0.34
+  score = (binary_score_weather*weight_weather)+(binary_score_time*weight_time)+(binary_score_density*weight_density)+(binary_score_commercial*weight_commercial)
   
   return score
 
@@ -224,13 +223,37 @@ ads_info = [
   "name": "restaurant2",
   "weather": "rainy",
   "time": "day",
-  "service_level": "silver" 
+  "service_level": "gold" 
   },
   {
   "name": "restaurant3",
   "weather": "snowy",
-  "time": "day",
+  "time": "night",
   "service_level": "bronze" 
+  },
+  {
+  "name": "events1",
+  "weather": "cloudy",
+  "time": "day",
+  "service_level": "silver" 
+  },
+  {
+  "name": "events2",
+  "weather": "cloudy",
+  "time": "night",
+  "service_level": "silver" 
+  },
+  {
+  "name": "events3",
+  "weather": "sunny",
+  "time": "midnight",
+  "service_level": "bronze" 
+  },
+  {
+  "name": "Apple",
+  "weather": "rainy",
+  "time": "morning",
+  "service_level": "gold" 
   },
 ]
 
@@ -244,6 +267,16 @@ for ad in ads_info:
 
 ad_score_list.sort(key=lambda x: x[1], reverse=True)
 print(ad_score_list)
+
+[
+  ('H&M', 1.17), 
+  ('McDonalds: Coffee', 0.99), 
+  ('restaurant2', 0.99), 
+  ('Starbcks', 0.65), 
+  ('restaurant1', 0.65), 
+  ('restaurant3', 0.65)
+]
+
 
 
 
