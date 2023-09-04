@@ -42,7 +42,7 @@
               <p class="fw-normal mb-0">{{ad.display | number}}</p>
             </td>
             <td>
-              <span class="badge rounded-pill d-inline" 
+              <span class="badge rounded-pill d-inline"
                 [ngClass]="{
                 'badge-success':ad.status === 1,
                 'badge-primary':ad.status === 0,
@@ -72,3 +72,7 @@
 
   </div>
 </div>
+
+<modal [(open)]="openModal">
+  <app-advertisers-add-advertisement (onAddAdverstisementSuccess)="openModal = false"></app-advertisers-add-advertisement>
+</modal>

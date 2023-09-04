@@ -45,6 +45,7 @@ import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ModalModule } from './components/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -85,17 +86,18 @@ import { LoginComponent } from './pages/login/login.component';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    MatFormFieldModule, 
-    MatSelectModule, 
-    MatInputModule, 
-    FormsModule, 
-    ReactiveFormsModule, 
-    NgIf, 
-    NgFor, 
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    NgFor,
     MatButtonModule,
     MatSidenavModule,
     CanvasJSAngularChartsModule,
     HttpClientModule,
+    ModalModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

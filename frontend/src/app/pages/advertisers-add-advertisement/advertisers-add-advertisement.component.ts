@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AdService } from 'src/app/service/ad.service';
-import { Ad } from 'src/app/model/Ad';
-import {FormControl, Validators} from '@angular/forms';
+import { catchError } from 'rxjs';
 
 interface SelectType {
   value: string;
@@ -15,11 +13,17 @@ interface SelectType {
   templateUrl: './advertisers-add-advertisement.component.html',
   styleUrls: ['./advertisers-add-advertisement.component.scss']
 })
-export class AdvertisersAddAdvertisementComponent implements OnInit{
+export class AdvertisersAddAdvertisementComponent implements OnInit {
+
+  @Output() onAddAdverstisementSuccess = new EventEmitter<void>;
+
   userId!: number;
   adTitle: any;
 
-	constructor(private router: Router, private adService: AdService) {}
+	constructor(
+    private adService: AdService,
+  ) {}
+
   ngOnInit(): void {
     this.userId = Number(sessionStorage.getItem("loginID"))
   }
@@ -70,12 +74,13 @@ export class AdvertisersAddAdvertisementComponent implements OnInit{
       return;
     }else{
       addForm.value.date = new Date();
-      this.adService.addAd(addForm.value, this.userId).subscribe(
-        (response: Ad) => {
-          console.log(response);
-          this.router.navigate(['/advertisers/manage']);
-        }
-      );
+      this.adService
+        .addAd(addForm.value, this.userId)
+        .pipe(catchError((err) => {
+          alert("Something went wrong: cannot create Ad!");
+          throw err;
+        }))
+        .subscribe(() => this.onAddAdverstisementSuccess.emit());
     }
   }
 }
